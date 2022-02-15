@@ -20,11 +20,13 @@ class TaskController extends Controller
         $data = $request->validated();
         $data['user_id'] = auth()->id();
         $response = Task::create($data);
+        return response()->json($response, 201);
     }
 
     public function show(Task $task)
     {
         $response = $task;
+        return response()->json($response, 200);
     }
 
     public function update(TaskRequest $request, Task $task)
@@ -32,11 +34,12 @@ class TaskController extends Controller
         $data = $request->validated();
         $task->update($data);
         $response = $task;
+        return response()->json($response, 200);
     }
 
     public function destroy(Task $task)
     {
         $task->delete();
-        $response = response(null, 204);
+        return response(null, 204);
     }
 }
