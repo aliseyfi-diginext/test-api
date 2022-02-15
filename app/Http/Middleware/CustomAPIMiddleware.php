@@ -18,11 +18,9 @@ class CustomAPIMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        dd(2);
         $auth = $request->header('Authorization');
         $token = substr($auth, strpos($auth, ":") + 1);
-
-
+        echo $token;
         $user = User::where('api_token', $token)->first();
         if ($token && $user) {
             Auth::login($user);
