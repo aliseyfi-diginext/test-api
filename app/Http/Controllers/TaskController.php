@@ -15,6 +15,7 @@ class TaskController extends Controller
         return response($response, 200)->withHeaders([
             'Access-Control-Allow-Origin' => '*',
             'Access-Control-Allow-Headers' => 'Origin, Content-Type',
+            'Access-Control-Allow-Methods' => 'GET, POST, PUT, DELETE, OPTIONS'
         ]);
     }
 
