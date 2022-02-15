@@ -12,7 +12,7 @@ class TaskController extends Controller
     public function index()
     {
         $response = Task::where('user_id', auth()->id())->latest()->get();
-        return response($response, 200)->json();
+        return response()->json($response, 200);
     }
 
     public function store(TaskRequest $request)
