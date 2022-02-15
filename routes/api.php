@@ -3,7 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::apiResource('task', 'TaskController')->middleware('custom_api');
+Route::middleware('cors')->group(function () {
+    Route::apiResource('task', 'TaskController')->middleware('custom_api');
 
-Route::post('answers/get', 'AnswerController@get');
-Route::post('answers/save', 'AnswerController@save');
+    Route::post('answers/get', 'AnswerController@get');
+    Route::post('answers/save', 'AnswerController@save');
+});
