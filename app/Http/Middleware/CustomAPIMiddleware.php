@@ -22,7 +22,7 @@ class CustomAPIMiddleware
         $token = substr($auth, strpos($auth, ":") + 1);
 
         $user = User::where('api_token', $token)->first();
-        if ($user) {
+        if ($token && $user) {
             Auth::login($user);
             return $next($request);
         }else {
