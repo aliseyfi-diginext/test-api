@@ -16,6 +16,7 @@ class CorsMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
+        dd(1);
         return $next($request)
         ->header('Access-Control-Allow-Origin', '*')
         ->header('Access-Control-Allow-Methods', '*')
