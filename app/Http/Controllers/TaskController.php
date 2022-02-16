@@ -54,7 +54,7 @@ class TaskController extends Controller
         $user = auth()->user();
         if ($user->id == $task->user_id) {
             $task->done = $request->done;
-            $rask->save();
+            $task->save();
             return response(null, 200);
         }else {
             abort(403);
