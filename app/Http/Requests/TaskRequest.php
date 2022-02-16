@@ -25,7 +25,7 @@ class TaskRequest extends FormRequest
     {
         return [
             'title' => 'required|string',
-            'description' => 'nullable|string',
+            'description' => 'nullable|string|min:5',
             'owner' => 'nullable|string',
             'done' => 'nullable|boolean',
         ];
