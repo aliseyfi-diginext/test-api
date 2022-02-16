@@ -55,7 +55,7 @@ class TaskController extends Controller
         if ($user->id == $task->user_id) {
             $task->done = $request->done;
             $task->save();
-            return response(null, 200);
+            return response()->json([], 200);
         }else {
             abort(403);
         }
@@ -66,7 +66,7 @@ class TaskController extends Controller
         $user = auth()->user();
         if ($user->id == $task->user_id) {
             $task->delete();
-            return response(null, 204);
+            return response()->json([], 204);
         }else {
             abort(403);
         }
