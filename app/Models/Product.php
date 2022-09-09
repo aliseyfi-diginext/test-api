@@ -20,7 +20,7 @@ class Product extends Model
     public function getPicturePathAttribute()
     {
         if ($path = $this->picture) {
-            $path = str_replace('public/', 'storage/');
+            $path = str_replace('public/', 'storage/', $path);
             return asset($path);
         }
     }
