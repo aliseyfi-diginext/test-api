@@ -1,3 +1,4 @@
+
 <?php
 
 namespace App\Http\Requests;
@@ -28,7 +29,7 @@ class ProductRequest extends FormRequest
             'price' => 'required|integer|min:0',
             'discount' => 'nullable|integer|between:0,100',
             'description' => 'required|string|min:10',
-            'picture' => 'required|image|max:1000',
+            'picture' => 'nullable|image|max:1000',
         ];
     }
 }

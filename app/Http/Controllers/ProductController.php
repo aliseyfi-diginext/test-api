@@ -21,6 +21,9 @@ class ProductController extends Controller
         $user = auth()->user();
         $data = $request->validated();
         $data['user_id'] = $user->id;
+        if ($request->picture) {
+            $data['picture'] = $request->picture->store('public/documents');
+        }
         $response = Product::create($data);
         return response()->json($response, 201);
     }
@@ -41,6 +44,9 @@ class ProductController extends Controller
         $user = auth()->user();
         if ($user->id == $product->user_id) {
             $data = $request->validated();
+            if ($request->picture) {
+                $data['picture'] = $request->picture->store('public/documents');
+            }
             $product->update($data);
             $response = $product;
             return response()->json($response, 200);
