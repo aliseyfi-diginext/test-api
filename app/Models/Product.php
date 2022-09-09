@@ -14,6 +14,6 @@ class Product extends Model
 
     public function getPayableAttribute()
     {
-        return $this->discount ? ($this->price - ($this->price * ($this->price/100))) : $this->price;
+        return $this->discount ? ($this->price - ($this->price * ($this->discount/100))) : $this->price;
     }
 }
